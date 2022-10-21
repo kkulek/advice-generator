@@ -27,9 +27,9 @@ const Button = styled.a`
   }
 `
 
-export function ButtonDice() {
+export function ButtonDice({onClick}) {
     return (
-        <Button>
+        <Button onClick={onClick}>
             <img src={dice} alt="dice"/>
         </Button>
     )
