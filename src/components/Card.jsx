@@ -5,7 +5,6 @@ import {colorPalette} from "../colorPallete";
 export const Card = styled.div`
   background-color: ${colorPalette.dark};
   width: 90%;
-  min-height: 315px;
   margin: auto;
   border-radius: 10px;
   position: relative;
