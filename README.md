@@ -1,3 +1,3 @@
-# Advice generator 
+# Advice generator
 
 ## React, styled-components, API
