@@ -3,7 +3,7 @@ import styled from "styled-components";
 import {colorPalette} from "../colorPallete";
 import dice from "../img/icon-dice.svg"
 
-export function Button({children}) {
+export function Button() {
     const Button = styled.a`
       position: absolute;
       height: 64px;
