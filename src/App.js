@@ -1,24 +1,41 @@
+import {useState, useEffect} from "react";
 import {Main} from "./components/Main";
 import {Card} from "./components/Card";
 import {AdviceNum} from "./components/AdviceNum";
 import {AdviceCopy} from "./components/AdviceCopy";
-import {Button} from "./components/Button";
+import {ButtonDice} from "./components/Button";
 import {Divider} from "./components/Divider";
 
 
 function App() {
+    const [advice, setAdvice] = useState({
+        slip: {
+            id: '',
+            advice: ''
+        }
+    });
+
+    const fetchAdvice = async () => {
+        const response = await fetch("https://api.adviceslip.com/advice");
+        const data = response.json()
+        setAdvice(await data)
+    }
+
+    useEffect(() => {
+        fetchAdvice();
+    }, [])
+
     return (
         <Main>
             <Card>
                 <AdviceNum>
-                    Advice #117
+                    Advice #{advice.slip.id}
                 </AdviceNum>
                 <AdviceCopy>
-                    “It is easy to sit up and take notice, what's difficult is getting up and taking
-                    action.”
+                    {advice.slip.advice}
                 </AdviceCopy>
-                <Divider />
-                <Button/>
+                <Divider/>
+                <ButtonDice onClick={fetchAdvice}/>
             </Card>
         </Main>
     )
